@@ -3,95 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وسام فرسان التحدي</title>
+    <title>وسام فرسان التحدي - المعلمة أنوار الخطيب</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     
     <style>
-        body { font-family: 'Cairo', sans-serif; background: #0f172a; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
-        .certificate-container { background: white; border: 15px solid #f8fafc; border-radius: 10px; position: relative; }
-        .gold-border { border: 5px double #d4af37; padding: 40px; border-radius: 5px; }
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            background: #0f172a; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+            padding: 20px; 
+        }
+        .certificate-container { 
+            background: white; 
+            border: 12px solid #f8fafc; 
+            position: relative; 
+            width: 100%; 
+            max-width: 600px; 
+        }
+        .gold-border { 
+            border: 5px double #d4af37; 
+            padding: 40px; 
+            margin: 5px; 
+        }
+        .hope-box { 
+            border-right: 5px solid #ca8a04; 
+            background: #fefce8; 
+            padding: 20px; 
+            border-radius: 0 15px 15px 0; 
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
 
-    <div id="setup-screen" class="bg-white p-8 rounded-3xl shadow-2xl w-full max-w-md text-center">
-        <h1 class="text-3xl font-black text-slate-800 mb-6">مرحباً بك يا بطل</h1>
-        <input type="text" id="student-name" placeholder="اكتب اسمك الثلاثي" 
-               class="w-full border-2 p-4 rounded-xl mb-6 text-center text-xl outline-none focus:border-yellow-600">
-        <button onclick="generate()" class="w-full bg-slate-900 text-white font-bold py-4 rounded-xl text-xl transition hover:bg-black">استلام الوسام ✨</button>
+    <div id="setup-screen" class="bg-white p-10 rounded-3xl shadow-2xl w-full max-w-md text-center">
+        <div class="text-7xl mb-6">🛡️</div>
+        <h1 class="text-3xl font-black text-slate-800 mb-2">وسام فرسان التحدي</h1>
+        <p class="text-slate-500 mb-8 font-bold">رغم الصعاب.. العلم يجمعنا</p>
+        
+        <input type="text" id="student-name" placeholder="اكتب اسمك الثلاثي هنا..." 
+               class="w-full border-2 border-slate-200 p-4 rounded-2xl mb-6 text-center text-xl outline-none focus:border-yellow-600 shadow-inner transition-all">
+        
+        <button onclick="generate()" class="w-full bg-slate-900 text-white font-black py-5 rounded-2xl text-xl hover:bg-black shadow-xl transition-all transform active:scale-95">
+            استلام الوسام الخاص بك ✨
+        </button>
     </div>
 
-    <div id="award-screen" class="hidden w-full max-w-2xl">
-        <div id="capture-area" class="certificate-container shadow-2xl">
+    <div id="award-screen" class="hidden w-full flex flex-col items-center animate-in fade-in zoom-in duration-700">
+        
+        <div id="capture-area" class="certificate-container shadow-2xl overflow-hidden">
             <div class="gold-border text-center">
                 <div class="text-6xl mb-4">🏆</div>
-                <h2 class="text-xl font-bold text-slate-400 uppercase tracking-widest">شهادة فخر واعتزاز</h2>
+                <h2 class="text-2xl font-bold text-slate-400 uppercase tracking-widest mb-2">وسام اعتزاز</h2>
+                
                 <div class="my-10">
-                    <p class="text-slate-500 text-lg">نمنح هذا الوسام للطالبـ/ـة:</p>
-                    <h3 id="display-name" class="text-4xl font-black text-slate-900 mt-2 border-b-4 border-yellow-500 inline-block px-4"></h3>
+                    <p class="text-slate-500 text-xl">أمنحه بكل فخر للطالب/ـةـ:</p>
+                    <h3 id="display-name" class="text-4xl font-black text-slate-900 mt-3 border-b-4 border-yellow-500 inline-block px-4 pb-1"></h3>
                 </div>
-                <p class="text-xl text-slate-700 leading-relaxed font-bold mb-6">
-                    لقد أثبتَّ أن شغفك بالعلم أقوى من كل الظروف. شكراً لالتزامك وتفوقك في التعلم عن بعد.
-                </p>
-                <div class="bg-yellow-50 p-4 rounded-lg italic text-slate-800 font-bold border-r-4 border-yellow-600">
-                    "خلف كل غيمة شتاء.. شمسٌ تأبى إلا أن تشرق."
+
+                <div class="text-right space-y-6">
+                    <p class="text-xl text-slate-700 leading-relaxed font-bold">
+                        لقد أثبتَّ اليوم أن شغفك بالعلم أقوى من كل الظروف. فخورة بالتزامك وتفوقك في التعلم عن بعد رغم كل التحديات وحالة الطوارئ.
+                    </p>
+                    
+                    <div class="hope-box italic text-slate-800 font-black text-lg shadow-sm">
+                        "تذكر/ي دائماً: خلف كل غيمة شتاء.. شمسٌ تأبى إلا أن تشرق، وصبرك اليوم هو الجسر الذي سيعبر بك إلى أحلامك غداً."
+                    </div>
                 </div>
-                <div class="mt-10 flex justify-between text-slate-400 font-bold text-sm">
-                    <span>تحريراً في: 2026</span>
-                    <span class="text-yellow-600 font-black text-lg">بصمة تميز 🎖️</span>
+
+                <div class="mt-12 pt-8 border-t border-slate-100 flex justify-between items-center font-black">
+                    <div class="text-slate-400 text-sm">التاريخ: مارس 2026</div>
+                    <div class="text-yellow-600 text-xl flex items-center gap-2">
+                        <span>معلمتك الفخورة بك:أنوار خطيب</span>
+                        <span>🎖️</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <button onclick="downloadImg()" class="bg-yellow-600 hover:bg-yellow-700 text-white font-black py-4 px-8 rounded-2xl flex items-center justify-center gap-2 shadow-lg transition transform active:scale-95">
-                📥 تحميل الشهادة كصورة
+        <div class="mt-10 flex flex-wrap gap-4 justify-center w-full px-4">
+            <button onclick="downloadImg()" class="bg-yellow-600 hover:bg-yellow-700 text-white font-black py-4 px-10 rounded-2xl flex items-center gap-3 shadow-2xl transition-all transform active:scale-90 text-lg">
+                <span>📥</span> تحميل الشهادة (PNG)
             </button>
-            <button onclick="share()" class="bg-blue-800 hover:bg-blue-900 text-white font-black py-4 px-8 rounded-2xl flex items-center justify-center gap-2 shadow-lg transition transform active:scale-95">
-                🔗 مشاركة الرابط
+            
+            <button onclick="share()" class="bg-blue-800 hover:bg-blue-900 text-white font-black py-4 px-10 rounded-2xl flex items-center gap-3 shadow-2xl transition-all transform active:scale-90 text-lg">
+                <span>🔗</span> مشاركة الرابط
             </button>
         </div>
-        <p class="text-white/50 text-center mt-6 text-sm cursor-pointer underline" onclick="location.reload()">إنشاء شهادة أخرى</p>
+
+        <button onclick="location.reload()" class="mt-8 text-white/60 hover:text-white underline font-bold transition-all">إنشاء وسام جديد لزميل آخر</button>
     </div>
 
     <script>
         function generate() {
             const name = document.getElementById('student-name').value;
-            if(!name) return alert("لطفاً اكتب اسمك");
+            if(!name || name.trim().length < 2) {
+                alert("لطفاً، اكتب اسمك الثلاثي ليكون الوسام مكتملاً!");
+                return;
+            }
+            
             document.getElementById('display-name').innerText = name;
             document.getElementById('setup-screen').classList.add('hidden');
             document.getElementById('award-screen').classList.remove('hidden');
-            confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+            
+            // احتفال القصاصات الملونة
+            confetti({
+                particleCount: 200,
+                spread: 80,
+                origin: { y: 0.6 },
+                colors: ['#d4af37', '#1e293b', '#ffffff']
+            });
         }
 
-        // دالة التحميل الحقيقي للصورة
+        // دالة تحويل الكود لصورة وتحميلها
         function downloadImg() {
             const area = document.getElementById('capture-area');
-            html2canvas(area, {
-                scale: 2, // لزيادة جودة الصورة
-                useCORS: true,
-                backgroundColor: "#ffffff"
+            const studentName = document.getElementById('display-name').innerText;
+            
+            html2canvas(area, { 
+                scale: 3, // جودة عالية جداً للطباعة
+                backgroundColor: "#ffffff",
+                logging: false,
+                useCORS: true 
             }).then(canvas => {
-                const base64image = canvas.toDataURL("image/png");
-                const anchor = document.createElement('a');
-                anchor.setAttribute("href", base64image);
-                anchor.setAttribute("download", "وسام_التحدي_" + document.getElementById('display-name').innerText + ".png");
-                anchor.click();
+                const link = document.createElement('a');
+                link.download = `وسام_فرسان_التحدي_${studentName}.png`;
+                link.href = canvas.toDataURL("image/png");
+                link.click();
             });
         }
 
         function share() {
+            const shareData = {
+                title: 'وسام فرسان التحدي',
+                text: 'لقد حصلت على وسام التميز من معلمتي! احصل على وسامك أيضاً.',
+                url: window.location.href
+            };
+
             if (navigator.share) {
-                navigator.share({
-                    title: 'وسامي من معلمتي',
-                    url: window.location.href
-                });
+                navigator.share(shareData).catch(console.error);
             } else {
                 navigator.clipboard.writeText(window.location.href);
-                alert("تم نسخ الرابط بنجاح!");
+                alert("تم نسخ رابط الموقع بنجاح! يمكنك الآن إرساله لأي شخص.");
             }
         }
     </script>
