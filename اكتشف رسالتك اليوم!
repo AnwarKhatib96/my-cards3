@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وسام فرسان التحدي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .main-card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 2rem;
+            border: 3px solid #e2e8f0;
+        }
+        .hope-section {
+            border-right: 5px solid #ca8a04;
+            background: #fefce8;
+        }
+    </style>
+</head>
+<body class="p-4">
+
+    <div id="setup-screen" class="main-card p-10 max-w-md w-full text-center shadow-2xl">
+        <div class="text-6xl mb-4">🛡️</div>
+        <h1 class="text-3xl font-black text-slate-800 mb-2">وسام فرسان التحدي</h1>
+        <p class="text-slate-500 mb-8 font-bold">رغم الصعاب.. العلم يجمعنا</p>
+        <input type="text" id="student-name" placeholder="اكتب اسمك الكامل هنا" 
+               class="w-full bg-slate-100 border-2 border-slate-200 p-4 rounded-xl mb-6 text-center text-xl outline-none focus:border-yellow-600">
+        <button onclick="unlock()" class="w-full bg-slate-900 text-white font-bold py-4 rounded-xl text-xl hover:bg-black transition shadow-lg">
+            استلام الوسام ✨
+        </button>
+    </div>
+
+    <div id="award-screen" class="hidden w-full max-w-2xl animate-in fade-in zoom-in duration-700">
+        <div class="main-card p-1 relative shadow-2xl">
+            <div class="p-8 border-4 border-double border-yellow-600 rounded-[1.8rem] text-center bg-white">
+                <span class="text-5xl">🏆</span>
+                <h2 class="text-2xl font-bold text-slate-400 mt-4 uppercase tracking-widest">شهادة فخر واعتزاز</h2>
+                
+                <div class="my-10">
+                    <p class="text-slate-500 text-lg">بكل تقدير أكرم الطالبـ/ـة:</p>
+                    <h3 id="display-name" class="text-4xl font-black text-slate-900 mt-2"></h3>
+                </div>
+
+                <div class="text-right space-y-6">
+                    <p class="text-xl text-slate-700 leading-relaxed font-bold">
+                        لقد أثبتَّ/تِّ اليوم أن شغفك بالعلم أقوى من كل الظروف. شكراً لأنك التزمت ببيتك، وتابعت دروسك، وجعلت من شاشة جهازك نافذةً لمستقبلٍ مشرق.
+                    </p>
+                    <div class="hope-section p-6 rounded-l-2xl italic text-lg text-slate-800 font-semibold shadow-sm">
+                        "تذكر/ي دائماً: خلف كل غيمة شتاء.. شمسٌ تأبى إلا أن تشرق، وصبرك اليوم هو الجسر الذي سيعبر بك إلى أحلامك غداً. أنا فخورة بك."
+                    </div>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-slate-100 flex justify-between items-center text-slate-400 font-bold">
+                    <div>التاريخ: آذار 2026</div>
+                    <div class="text-yellow-600">🎖️ معلمتك المحبة: أنوار خطيب</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function unlock() {
+            const name = document.getElementById('student-name').value;
+            if(!name) return alert("لطفاً اكتب اسمك");
+            document.getElementById('display-name').innerText = name;
+            document.getElementById('setup-screen').classList.add('hidden');
+            document.getElementById('award-screen').classList.remove('hidden');
+            
+            confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+        }
+    </script>
+</body>
+</html>
