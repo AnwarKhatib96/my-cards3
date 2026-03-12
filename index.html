@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وسام فرسان التحدي - المعلمة أنوار خطيب</title>
+    <title>رسالتك اليوم من المعلمة أنوار خطيب</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -45,14 +45,14 @@
 
     <div id="setup-screen" class="bg-white p-10 rounded-3xl shadow-2xl w-full max-w-md text-center">
         <div class="text-7xl mb-6">🛡️</div>
-        <h1 class="text-3xl font-black text-slate-800 mb-2">وسام فرسان التحدي</h1>
+        <h1 class="text-3xl font-black text-slate-800 mb-2">رسالة اليوم!</h1>
         <p class="text-slate-500 mb-8 font-bold">رغم الصعاب.. العلم يجمعنا</p>
         
         <input type="text" id="student-name" placeholder="اكتب اسمك الثلاثي هنا..." 
                class="w-full border-2 border-slate-200 p-4 rounded-2xl mb-6 text-center text-xl outline-none focus:border-yellow-600 shadow-inner transition-all">
         
         <button onclick="generate()" class="w-full bg-slate-900 text-white font-black py-5 rounded-2xl text-xl hover:bg-black shadow-xl transition-all transform active:scale-95">
-            استلام الوسام الخاص بك ✨
+        استلام الرسالة الخاصة بك ✨
         </button>
     </div>
 
@@ -70,11 +70,11 @@
 
                 <div class="text-right space-y-6">
                     <p class="text-xl text-slate-700 leading-relaxed font-bold">
-                        لقد أثبتَّ اليوم أن شغفك بالعلم أقوى من كل الظروف. فخورة بالتزامك وتفوقك في التعلم عن بعد رغم كل التحديات وحالة الطوارئ.
+                        أنت رائع/ـة! فخورة بالتزامك وتفوقك في التعلم عن بعد رغم كل الظروف.
                     </p>
                     
                     <div class="hope-box italic text-slate-800 font-black text-lg shadow-sm">
-                        "تذكر/ي دائماً أنّ خلف كل غيمة شتاء.. شمسٌ تأبى إلّا أن تشرق، وصبرك اليوم هو الجسر الذي سيعبر بك إلى أحلامك غداً."
+                        "تذكر/ي دائماً أنّ خلف كلّ ظلام هناك شمس مشرقة، وأن أملك اليوم هو الجسر الذي سيعبر بك إلى أحلامك غداً."
                     </div>
                 </div>
 
@@ -90,7 +90,7 @@
 
         <div class="mt-10 flex flex-wrap gap-4 justify-center w-full px-4">
             <button onclick="downloadImg()" class="bg-yellow-600 hover:bg-yellow-700 text-white font-black py-4 px-10 rounded-2xl flex items-center gap-3 shadow-2xl transition-all transform active:scale-90 text-lg">
-                <span>📥</span> تحميل الشهادة (PNG)
+                <span>📥</span> تحميل الرسالة (PNG)
             </button>
             
             <button onclick="share()" class="bg-blue-800 hover:bg-blue-900 text-white font-black py-4 px-10 rounded-2xl flex items-center gap-3 shadow-2xl transition-all transform active:scale-90 text-lg">
@@ -142,8 +142,8 @@
 
         function share() {
             const shareData = {
-                title: 'وسام فرسان التحدي',
-                text: 'لقد حصلت على وسام التميز من معلمتي! احصل على وسامك أيضاً.',
+                title: 'رسالة اليوم',
+                text: 'لقد حصلت على رسالة من معلمتي! احصل على رسالتك أيضاً.',
                 url: window.location.href
             };
 
